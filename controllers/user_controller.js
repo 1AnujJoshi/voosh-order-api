@@ -49,7 +49,7 @@ module.exports.login = async function (req, res) {
     if (!isMatch) return res.status(400).json({ msg: "Invalid credentials." });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-    console.log("token", token);
+
     res.json({
       token,
       user: {
